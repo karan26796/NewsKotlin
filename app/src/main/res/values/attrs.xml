@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="BenefitView">
 
-        <attr name="image" format="reference" />
-        <attr name="text" format="string" />
-        <attr name="textAppearance" format="reference" />
-        <attr name="textSize" format="dimension" />
-    </declare-styleable>
 </resources>

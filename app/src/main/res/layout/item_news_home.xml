@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="news"
+            type="h.app.hackit.newsapp.kotlin.model.News" />
+
+        <variable
+            name="clickListener"
+            type="h.app.hackit.newsapp.kotlin.home.adapter.NewsHomeAdapter.ItemClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:id="@+id/imageNewsHome"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{news.urlToImage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ProgressBar
+            android:id="@android:id/progress"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/imageNewsHome"
+            app:layout_constraintEnd_toEndOf="@id/imageNewsHome"
+            app:layout_constraintStart_toStartOf="@id/imageNewsHome"
+            app:layout_constraintTop_toTopOf="@id/imageNewsHome" />
+
+        <TextView
+            android:id="@+id/textNewsTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="4dp"
+            android:text="@{news.title}"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/buttonOptions"
+            app:layout_constraintStart_toStartOf="@+id/start"
+            app:layout_constraintTop_toBottomOf="@id/textNewsCategory"
+            tools:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/textNewsCategory"
+            style="@style/TextViewSubHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textNewsTitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:text="@{news.source.name}"
+            android:textColor="?colorAccent"
+            app:layout_constraintStart_toStartOf="@+id/textNewsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/imageNewsHome"
+            tools:text="@string/app_name" />
+
+        <ImageButton
+            android:id="@+id/buttonOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textNewsTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textNewsTitle"
+            app:srcCompat="@drawable/ic_more_vert" />
+
+        <TextView
+            android:id="@+id/textNewsDate"
+            style="@style/TextViewSubHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textNewsTitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/textNewsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textNewsTitle"
+            app:timeElaspsed="@{news.date}"
+            tools:text="@string/app_name" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

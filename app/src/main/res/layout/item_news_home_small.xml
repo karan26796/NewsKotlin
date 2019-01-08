@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="news"
+            type="h.app.hackit.newsapp.kotlin.model.News" />
+
+        <variable
+            name="clickListener"
+            type="h.app.hackit.newsapp.kotlin.home.adapter.NewsHomeAdapter.ItemClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <h.app.hackit.newsapp.kotlin.a.customviews.SquareImageView
+            android:id="@+id/imageNewsHome"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_launcher_background"
+            app:imageUrl="@{news.urlToImage}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/imageNewsHome"
+            app:layout_constraintEnd_toEndOf="@id/imageNewsHome"
+            app:layout_constraintStart_toStartOf="@id/imageNewsHome"
+            app:layout_constraintTop_toTopOf="@id/imageNewsHome" />
+
+        <TextView
+            android:id="@+id/textNewsTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:lineSpacingExtra="2dp"
+            android:text="@{news.title}"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageNewsHome"
+            app:layout_constraintStart_toStartOf="@+id/start"
+            app:layout_constraintTop_toBottomOf="@+id/textNewsCategory"
+            tools:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/textNewsDate"
+            style="@style/TextViewSubHead"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:timeElaspsed="@{news.date}"
+            app:layout_constraintEnd_toStartOf="@+id/buttonOptions"
+            app:layout_constraintStart_toStartOf="@+id/textNewsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textNewsTitle"
+            tools:text="Date" />
+
+        <TextView
+            android:id="@+id/textNewsCategory"
+            style="@style/TextViewSubHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textNewsTitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:textColor="?colorAccent"
+            android:maxLength="@null"
+            android:text="@{news.source.name}"
+            app:layout_constraintStart_toStartOf="@+id/textNewsTitle"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
+
+        <ImageButton
+            android:id="@+id/buttonOptions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageNewsHome"
+            app:layout_constraintTop_toBottomOf="@+id/textNewsTitle"
+            app:srcCompat="@drawable/ic_more_vert" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

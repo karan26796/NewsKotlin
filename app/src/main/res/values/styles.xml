@@ -6,6 +6,48 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/google_sans_regular</item>
+        <item name="android:font">@font/google_sans_medium</item>
     </style>
 
+    <style name="TextViewHead">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/google_sans_medium</item>
+    </style>
+
+    <style name="TextViewSubHead">
+        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/google_sans_bold</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@mipmap/ic_launcher</item>
+    </style>
+
+    <style name="ButtonLogin" parent="Base.Widget.AppCompat.Button">
+        <item name="android:background">@drawable/selector_login_btn</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Toolbar" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="android:titleTextAppearance">@style/TextViewHead</item>
+    </style>
+
+    <declare-styleable name="CustomToolbar">
+        <attr name="leftDrawable" format="reference" />
+        <attr name="rightDrawable" format="reference" />
+        <attr name="titleColor" format="reference" />
+        <attr name="title" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomSearchToolbar">
+        <attr name="icon" format="reference" />
+        <attr name="leftDraw" format="reference" />
+        <attr name="hint" format="string" />
+    </declare-styleable>
+
+    <color name="textColorSecondary">#78000000</color>
+    <color name="textColorPrimary">#000</color>
 </resources>
